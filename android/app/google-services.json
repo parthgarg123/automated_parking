@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "965777070058",
+    "project_id": "automated-parking-fa7c6",
+    "storage_bucket": "automated-parking-fa7c6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:965777070058:android:dbf7e1e0f02e8e40e90493",
+        "android_client_info": {
+          "package_name": "com.example.automated_parking"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5b9X8828w_S5Klnp5uxGKNRo-OGGOiDo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
