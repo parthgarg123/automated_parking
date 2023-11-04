@@ -1,5 +1,6 @@
 import 'package:automated_parking/pages/homepage.dart';
 import 'package:automated_parking/pages/login.dart';
+import 'package:automated_parking/pages/loginorreg.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 class AuthPage extends StatelessWidget {
@@ -15,7 +16,7 @@ class AuthPage extends StatelessWidget {
             return HomePage();
           }
           else
-            return LoginPage();
+            return LoginorReg();
         },
       ),
     );
