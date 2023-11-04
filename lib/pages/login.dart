@@ -1,17 +1,48 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'dart:developer';
 import 'package:automated_parking/components/my_button.dart';
 import 'package:automated_parking/components/my_textfield.dart';
 import 'package:automated_parking/components/square_tile.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   LoginPage({super.key});
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   // text editing controllers
-  final usernameController = TextEditingController();
+  final emailController = TextEditingController();
+
   final passwordController = TextEditingController();
 
   // sign user in method
-  void signUserIn() {}
+  void signUserIn() async{
+    showDialog(context: context, builder: (context){
+      return const Center(
+        child: CircularProgressIndicator(),
+        );
+      },
+      );
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: emailController.text,
+      password: passwordController.text);
+    } on FirebaseAuthException catch(e){
+      if(e.code =='invalid-email'){
+        log('wrong email');
+        wrongEmailMsg();
+      }
+      else if(e.code=='INVALID_LOGIN_CREDENTIALS'){
+        log('wrong password');
+        wrongPasswordMsg();
+      }
+    }
+
+      Navigator.pop(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,8 +76,8 @@ class LoginPage extends StatelessWidget {
 
               // username textfield
               MyTextField(
-                controller: usernameController,
-                hintText: 'Username',
+                controller: emailController,
+                hintText: 'Email',
                 obscureText: false,
               ),
 
