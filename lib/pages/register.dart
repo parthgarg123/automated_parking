@@ -1,3 +1,4 @@
+import 'package:automated_parking/pages/services/google.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'dart:developer';
@@ -153,14 +154,16 @@ class _RegisterPageState extends State<RegisterPage> {
                 // google + apple sign in buttons
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children: [
                     // google button
-                    SquareTile(imagePath: 'lib/assets/images/google.png'),
+                    SquareTile(imagePath: 'lib/assets/images/google.png',
+                    onTap: authService().signInWithGoogle(),),
           
                     SizedBox(width: 25),
           
                     // apple button
-                    SquareTile(imagePath: 'lib/assets/images/apple.png')
+                    SquareTile(imagePath: 'lib/assets/images/apple.png',
+                    onTap: () {},)
                   ],
                 ),
           
